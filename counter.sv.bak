@@ -1,0 +1,8 @@
+module counter (TL, T, B, TR, R, L, LL, LR, neighbours);
+	input logic TL, T, B, TR, R, L, LL, LR;
+	output logic [3:0] neighbours;
+	
+	assign neighbours = TL + T + B + TR + R + L + LL + LR;
+end
+		
+		

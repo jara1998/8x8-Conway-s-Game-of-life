@@ -1,0 +1,68 @@
+module seed (clk, in, out, next, HEX0);
+
+	input logic clk, next;
+	input logic [7:0] in; // number indicated by the switches
+	output logic [7:0][7:0] out;
+	output logic [6:0] HEX0;
+	logic [2:0] count;
+	
+	always_comb begin
+		case (count)
+			3'd0: HEX0 = 7'b1111001;
+			3'd1: HEX0 = 7'b0100100;
+			3'd2: HEX0 = 7'b0110000;
+			3'd3: HEX0 = 7'b0011001;
+			3'd4: HEX0 = 7'b0010010;
+			3'd5: HEX0 = 7'b0000010;
+			3'd6: HEX0 = 7'b1111000;
+			3'd7: HEX0 = 7'b0000000;
+		endcase
+	end
+			
+	
+	always_ff @(posedge next) begin
+		count <= count + 3'b001;
+	end
+	
+	always_ff @(posedge next) begin
+			out[count] <= in;
+			
+	end
+endmodule
+
+	
+	
+	
+/*
+module setGame_tb ();
+	logic clk, reset, next;
+	logic [7:0] in; // number indicated by the switches
+	logic [7:0][7:0] out;
+	
+	setGame dut (.clk(clk), .reset(reset), .in(in), .out(out), .next(next));
+	
+*/
+	
+	/*
+	always_comb begin
+		case (ps)
+			A: begin 
+					out[0] = 8'b00000000;
+					out[1] = 8'b00000000;
+					out[2] = 8'b00000000;
+					out[3] = 8'b00000000;
+					out[4] = 8'b00000000;
+					out[5] = 8'b00000000;
+					out[6] = 8'b00000000;
+					out[7] = 8'b00000000;
+					ns = A;
+				end
+			B: begin
+					ns = B;
+					for (i = 0; i <= 7; i++) begin 
+						out[i] = in; @(posedge set);
+					end
+				end
+		endcase
+	end */
+

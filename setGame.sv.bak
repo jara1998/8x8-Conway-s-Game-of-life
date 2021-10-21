@@ -1,0 +1,22 @@
+module setGame (clk, reset, in, out, set);
+
+	input logic clk, reset, set;
+	input logic [7:0] in;
+	output logic [7:0][7:0] out;
+	
+	
+	always_ff @(posedge clk) begin
+		if (reset) begin
+			out[0] = 8'b00000000;
+			out[1] = 8'b00000000;
+			out[2] = 8'b00000000;
+			out[3] = 8'b00000000;
+			out[4] = 8'b00000000;
+			out[5] = 8'b00000000;
+			out[6] = 8'b00000000;
+			out[7] = 8'b00000000;
+			end
+		else begin
+			
+				
+			

@@ -1,0 +1,29 @@
+module LED (clk, clk2, reset, TL, T, B, TR, R, L, LL, LR, lightOn, init);
+	input logic clk, clk2, reset, TL, T, B, TR, R, L, LL, LR, init;
+	output logic lightOn;
+	enum {A, B} ps, ns; // A: off, B: on
+	logic [3:0] neighbours;
+	
+	counter ct (.TL(TL), .T(T), .B(B), .TR(TR), .R(R), .L(L), .LL(LL), .LR(LR), .neighbours(neighbours)); // count # of the neighbours endlessly
+	
+	always_comb begin
+		case (ps)
+			B: if (neighbours == 4'd2 || neighbours == 4'd3) ns = B; // keep living
+				else ns = A; // lonliness and overpopulation
+			A: if (neighbours == 4'd3) ns = B; // gives birth
+				else ns = A; // still dead
+			default: ns = A;
+		endcase
+	end
+	
+	always_ff @(posedge clk2) begin
+		if (reset)
+			ps <= init;
+		else
+			ps <= ns;
+	end
+		
+	
+	assign lightOn = (ps == B);
+endmodule
+			
