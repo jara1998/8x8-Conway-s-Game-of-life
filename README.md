@@ -1,4 +1,4 @@
-# 9x9-Conway-s-Game-of-life
+# 8x8-Conway-s-Game-of-life
 
 Introduction of this game:
 
