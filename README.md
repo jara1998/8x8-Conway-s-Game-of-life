@@ -1,5 +1,9 @@
 # 9x9-Conway-s-Game-of-life
 
+![image](https://user-images.githubusercontent.com/58502695/138346422-8ecc25ee-8a79-4aa1-b8bc-a220f6ca9b91.png)
+
+
+
 # logic 
 
 There 2 main steps in the process of designing. First one is dealing with user’s input and the
