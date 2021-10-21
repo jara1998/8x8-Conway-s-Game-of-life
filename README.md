@@ -1,7 +1,7 @@
 # 9x9-Conway-s-Game-of-life
 
 
-[![Watch the video](https://i.imgur.com/vKb2F1B.png)](https://www.youtube.com/watch?v=Oy3kn1bHkaw)
+[![Watch the video]()](https://www.youtube.com/watch?v=Oy3kn1bHkaw)
 
 
 # logic 
